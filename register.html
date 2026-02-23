@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo_style"> Yi Tang's homework</h2>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+            <button class="BTlogin">login</button>
+        </nav>
+    </header>
+
+
+    <div class="register_window">
+        <!-- register box -->
+        <div class="register_box">
+            <h2>Register</h2>
+            <form action="#" id="register_form">
+                <!-- this part is used to choose username or email as an account -->
+                <div class="register_username">
+                    <span class="icon">
+                        <img src="user-icon.png" alt="">
+                    </span>
+                    <input type="text" id="reg-username" required>
+                    <label>Username/Email</label>
+
+                </div>
+                <div class="register_telephone">
+                    <span class="icon">
+                        <img src="phone.png" alt="">
+                    </span>
+                    <input type="tel" name="telephone" id="reg-telephone" required>
+                    <label>Telephone</label>
+                </div>
+                <div class="register_new_password">
+                    <span class="icon">
+                        <img src="password-icon.png" alt="">
+                    </span>
+                    <input type="password" name="password" id="reg-new-password" required>
+                    <label>New Password</label>
+
+                </div>
+                <div class="confirm_new_password">
+                    <span class="icon">
+                        <img src="password-icon.png" alt="">
+                    </span>
+                    <input type="password" id="reg-confirm-password" required>
+                    <label>Confirm Password</label>
+
+                </div>
+                <div><button class="Register_submit" type="submit">Confirm</button></div>
+                <!-- accessory path of login-->
+                <div class="back">
+                    <a href="login.html"> back</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    const form = document.getElementById('register_form');
+    const usernameInput = document.getElementById('reg-username');
+    const telephoneInput = document.getElementById('reg-telephone');
+    const passwordInput = document.getElementById('reg-new-password');
+    const confirmPasswordInput = document.getElementById('reg-confirm-password');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); //to prevent the data renew
+        const username = usernameInput.value;
+        const telephone = telephoneInput.value;
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        fetch('http://localhost:3000/register', {
+            method: 'POST', credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, telephone, password, confirmPassword })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("successful");
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 100);
+                }
+                else { alert(data.message); }
+            })
+            .catch(error => { console.log("error", error) });
+
+
+    })
+
+
+</script>
+
+</html>

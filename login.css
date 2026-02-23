@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=WDXL+Lubrifont+SC&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E2F0FF;
+    background-image: url(A4-8.png);
+    background-repeat: no-repeat;
+    /* the image from my Figma--YT action works  */
+    background-size: 100% 70%;
+    /* 这里contain和cover都不合适，所以手动输入数值 */
+    background-position: bottom center;
+    flex-direction: column;
+}
+
+/* Here is for the whole header's style */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    /* the color in my adobe color library  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/* here is for the logo */
+.logo_style {
+    font-size: 32px;
+    color: #0F296B;
+    /* the color in my adobe color library  */
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 16px;
+    color: #0F296B;
+    /* the color in my adobe color library  */
+    text-decoration: none;
+    font-weight: 400;
+    margin-left: 30px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background-color: #0F296B;
+    border-radius: 4px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: right;
+    transform: scaleX(1);
+}
+
+.navigation a {
+    cursor: url('paw.png')16 16, pointer;
+    /*set the cursor to a paw ^_^  */
+}
+
+.navigation .BTlogin {
+    width: 80px;
+    height: 40px;
+    background-color: transparent;
+    border: 3px solid #0F296B;
+    outline: none;
+    border-radius: 4px;
+    cursor: url('paw.png')16 16, pointer;
+    /*set the cursor to a paw ^_^  */
+    font-size: 16px;
+    color: #0F296B;
+    ;
+    font-weight: 400;
+    margin-left: 30px;
+    transition: .5s;
+}
+
+.navigation .BTlogin:hover {
+    background: #0F296B;
+    color: #E2F0FF;
+}
+
+/* set a style to login window */
+.login_window {
+    position: relative;
+    width: 500px;
+    height: 420px;
+    background-color: transparent;
+    border: solid #fafaff;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(18, 59, 162, 0.658);
+    /* a little shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* this is used to set the login box form  */
+.login_window .login_box {
+    width: 100%;
+    padding: 70px;
+}
+
+/* this is for h2 */
+.login_box h2 {
+    font-size: 32px;
+    color: #0F296B;
+    text-align: center;
+}
+
+.login_input {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #0f296b86;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+
+.login_input label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-60%);
+    font-size: 16px;
+    color: #0F296B;
+    font-weight: 400;
+
+    pointer-events: none;
+    transition: 1s;
+
+}
+
+/*this is for the float action of the label  */
+.login_input input:focus~label,
+.login_input input:valid~label {
+    top: -20px;
+    transform: translateY(0);
+    /* transform is for moving the letters */
+    font-size: 14px;
+}
+
+.login_input input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 35px;
+}
+
+.login_input .icon {
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+}
+
+/* login button style */
+.lg_submit {
+    width: 100%;
+    height: 35px;
+    background-color: #0F296B;
+    color: #E2F0FF;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.persistent_login {
+    font-size: 16px;
+    color: #0F296B;
+    display: flex;
+    justify-content: space-between;
+}
+
+.persistent_login a {
+    color: #0F296B;
+}
+
+/* this is for forget link */
+.persistent_login a:hover {
+    text-decoration: underline;
+}
+
+
+.register_part {
+    font-size: 16px;
+    color: #0F296B;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register_part p a {
+    color: #0F296B;
+    text-decoration: none;
+
+}
+
+.register_part p a:hover {
+    text-decoration: underline;
+}
+
+/* the next part gonna be an register page */
+
+.register_window {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background-color: transparent;
+    border: solid #fafaff;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(18, 59, 162, 0.658);
+    /* a little shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* this is used to set the register box form  */
+.register_window .register_box {
+    width: 100%;
+    padding: 60px 130px 130px 130px;
+}
+
+.register_box h2 {
+    font-size: 32px;
+    color: #0F296B;
+    text-align: center;
+}
+
+.register_username {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #0f296b86;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+
+.register_username label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-55%);
+    font-size: 16px;
+    color: #0F296B;
+    font-weight: 400;
+    pointer-events: none;
+    transition: .3s;
+}
+
+/*this is for the float action of the label  */
+.register_username input:focus~label,
+.register_username input:valid~label {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.register_username input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 35px;
+}
+
+.register_username .icon {
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+}
+
+/* telephone register */
+.register_telephone {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #0f296b86;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+
+.register_telephone label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-55%);
+    font-size: 16px;
+    color: #0F296B;
+    font-weight: 400;
+    pointer-events: none;
+    transition: .3s;
+}
+
+/*this is for the float action of the label  */
+.register_telephone input:focus~label,
+.register_telephone input:valid~label {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.register_telephone input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 35px;
+
+}
+
+.register_telephone .icon {
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+}
+
+/* new password register */
+.register_new_password {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #0f296b86;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+
+.register_new_password label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-55%);
+    font-size: 16px;
+    color: #0F296B;
+    font-weight: 400;
+    pointer-events: none;
+    transition: .3s;
+}
+
+/*this is for the float action of the label  */
+.register_new_password input:focus~label,
+.register_new_password input:valid~label {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.register_new_password input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 35px;
+
+}
+
+.register_new_password .icon {
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+}
+
+/* confirm new password register */
+.confirm_new_password {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-bottom: 3px solid #0f296b86;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+
+.confirm_new_password label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-55%);
+    font-size: 16px;
+    color: #0F296B;
+    font-weight: 400;
+    pointer-events: none;
+    transition: .3s;
+}
+
+/*this is for the float action of the label  */
+.confirm_new_password input:focus~label,
+.confirm_new_password input:valid~label {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.confirm_new_password input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 35px;
+
+}
+
+.confirm_new_password .icon {
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+}
+
+/* login button style */
+.Register_submit {
+    width: 100%;
+    height: 35px;
+    background-color: #0F296B;
+    color: #E2F0FF;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.back a {
+    color: #0F296B;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    /* 调整位置到右下角 */
+    text-decoration: none;
+}
+
+/* this is for forget link */
+.back a:hover {
+    text-decoration: underline;
+}

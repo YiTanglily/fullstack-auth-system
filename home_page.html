@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <h1>Welcome to Home Page of my homework!</h1>
+    <p>successfully logged in</p>
+
+    <button id="Logout">log out</button>
+
+</body>
+<script>
+    console.log("home_page loaded!");
+    document.getElementById('Logout').addEventListener('click', () => {
+        fetch('http://localhost:3000/logout', { method: 'POST', credentials: 'include' })
+            .then(res => res.json())
+            .then(data => {
+
+                window.location.href = 'login.html';
+            });
+    });
+    //clear the history.
+
+    //check histoty again
+
+    fetch('http://localhost:3000/user-status', { credentials: 'include' })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.loggedIn) {
+                window.location.href = 'login.html';
+            }
+        });
+</script>
+
+</html>
